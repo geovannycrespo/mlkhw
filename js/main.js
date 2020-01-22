@@ -1,53 +1,68 @@
 //Q1 //
-Duplicates(int[] nums) {
-    for (int i = 0; i < nums.length; ++i) {
-        for (int j = 0; j < i; ++j) {
-            if (nums[j] == nums[i]) return true;  
+let array1 = [1,2,3,1] 
+
+function findDoubles(arr){
+    for(let i = 0; i < arr.length; i++){
+        for(let j=0; j < 4; j++){
+            if(arr[i] == arr[j]){
+                return true 
+            }
         }
-    }
-    return false;
+    return false
+    } 
 }
 
+//Q2//
+var i;
+var fib = []; 
 
-//  Q3 //
-class intArray {
-    public:
-      vector<int> sumZero(int n) {
-        vector<int> ans;
-        for (int i = 1; i <= n / 2; ++i) {
-          ans.push_back(i);
-          ans.push_back(-i);
-        }
-        if (ans.size() != n) ans.push_back(0);
-        return ans;
-      }
-    };
+fib[0] = 0;
+fib[1] = 1;
+for (i = 2; i <= 10; i++) {
+ 
+  fib[i] = fib[i - 2] + fib[i - 1];
+}
+function findFibonnacciSequence(fib){
+    let num= prompt("Please enter a number greater than 1: ")
+   
 
-    // Q4 //
-    public class Happy1 {
+//Q3//
+List list = new ArrayList();
 
-        public static boolean isHappy_number(int num)
-        {
-            Set<Integer> unique_num = new HashSet<Integer>();
-    
-            while (unique_num.add(num))
-            {
-                int value = 0;
-                while (num > 0)
-                {
-                    value += Math.pow(num % 10, 2);
-                    num /= 10;
-                }
-                num = value;
-            }
-    
-            return num == 1;
+        int arrayHalf = N / 2;
+        for (int i = -arrayHalf; i &lt;=arrayHalf; i++) {
+            list.add(i);
         }
-    
-        public static void main(String[] args)
-        {
-            System.out.print("Input a number: ");
-            int num = new Scanner(System.in).nextInt();
-            System.out.println(isHappy_number(num) ? "TRUE" : "FALSE");
+
+        if(N % 2 == 0) {
+            list.remove(new Integer(0));
         }
-    }
+
+ return list.stream().mapToInt(Integer::intValue).toArray();
+
+ //Q4//
+ function numbers() {
+	var result = false;
+	let number= prompt("Please enter a number greater than 0: ")
+	var prevSums = new Object(); 
+	
+	while ( !result && prevSums[ number ] == undefined ) {
+		
+		prevSums[ number ] = true;
+		
+		var sum = 0;
+		while ( number > 0 ) {
+			
+			sum += Math.pow( number % 10, 2 ); 
+			number = Math.floor( number / 10 );
+		}
+		
+		if ( sum == 1 )
+			result = true; 
+		else 
+			number = sum;
+	}
+	
+	return result;
+}
+numbers();
